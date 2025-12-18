@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odbierz punkty Gymsy</title>
+    <style>
+        /* Podstawowy reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fdc400; /* Czysty, płaski kolor tła */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            /* Duże zaokrąglenie sprawia, że design jest nowoczesny i przyjazny */
+            border-radius: 32px; 
+            padding: 40px 30px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            /* Brak cienia (box-shadow) zgodnie z życzeniem */
+        }
+
+        .video-container {
+            width: 100%;
+            overflow: hidden;
+            /* Bardzo mały margines dolny, żeby QR był blisko */
+            margin-bottom: 12px; 
+            background-color: #000; /* Tło pod wideo na wszelki wypadek */
+        }
+
+        video {
+            display: block;
+            width: 100%;
+            height: auto;
+            /* Usunięcie pustej przestrzeni pod wideo (vertical-align) */
+            vertical-align: bottom; 
+        }
+
+        .qr-code {
+            width: 160px;
+            height: 160px;
+            /* Kod QR nie ma żadnych ramek, jest czysty */
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            color: #222222; /* Bardzo ciemny szary dla maksymalnego kontrastu */
+            font-size: 20px;
+            font-weight: 700; /* Pogrubienie dla atrakcyjności */
+            line-height: 1.4;
+            margin: 0;
+            letter-spacing: -0.5px; /* Nowoczesny ścisk liter */
+        }
+        
+        /* Opcjonalnie: wyróżnienie słowa Gymsy kolorem tła */
+        .brand-name {
+            color: #dcb300; /* Ciemniejszy odcień żółtego dla czytelności na białym */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="video-container">
+            <video src="skrzynka.mp4" autoplay loop muted playsinline></video>
+        </div>
+        
+        <img src="qr-code.svg" alt="Kod QR Gymsy" class="qr-code">
+        
+        <p class="cta-text">
+            Zeskanuj kod i odbierz punkty w aplikacji <span class="brand-name">Gymsy</span>
+        </p>
+    </div>
+
+</body>
+</html>
