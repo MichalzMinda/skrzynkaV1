@@ -38,6 +38,7 @@
 
         .video-container {
             width: 100%;
+            aspect-ratio: 1 / 1; /* Kwadratowy kontener dla wideo 1080x1080 */
             overflow: hidden;
             /* Bardzo mały margines dolny, żeby QR był blisko */
             margin-bottom: 12px; 
@@ -47,9 +48,8 @@
         video {
             display: block;
             width: 100%;
-            height: auto;
-            /* Usunięcie pustej przestrzeni pod wideo (vertical-align) */
-            vertical-align: bottom; 
+            height: 100%;
+            object-fit: cover; /* Wypełnia kontener bez czarnych pasków */
         }
 
         .qr-code {
@@ -79,7 +79,7 @@
 
     <div class="container">
         <div class="video-container">
-            <video src="skrzynka2.mp4" autoplay loop muted playsinline></video>
+            <video src="skrzynka3.mp4" autoplay loop muted playsinline></video>
         </div>
         
         <img src="qr-code.svg" alt="Kod QR Gymsy" class="qr-code">
