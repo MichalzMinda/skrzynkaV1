@@ -100,7 +100,7 @@
 
     <div class="container">
         <div class="video-container">
-            <video src="skrzynka3.mp4" autoplay loop muted playsinline></video>
+            <video src="skrzynkaV4.mp4" autoplay loop muted playsinline></video>
         </div>
         
         <img src="qr-code-download.svg" alt="Kod QR Gymsy" class="qr-code">
@@ -109,6 +109,27 @@
             Zeskanuj kod i odbierz punkty w aplikacji <span class="brand-name">Gymsy</span>
         </p>
     </div>
-
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            // Dodajemy ?v= na końcu, żeby ominąć cache samej rejestracji
+            navigator.serviceWorker.register('./sw.js?v=' + Date.now()).then(reg => {
+              
+              reg.addEventListener('updatefound', () => {
+                const newWorker = reg.installing;
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    // Nowa wersja gotowa - powiadom użytkownika lub przeładuj
+                    if (confirm('Dostępna nowa wersja! Odświeżyć?')) {
+                      window.location.reload();
+                    }
+                  }
+                });
+              });
+      
+            });
+          });
+        }
+      </script>
 </body>
 </html>
